@@ -4,6 +4,7 @@
 {% block title %}Chat{% endblock %}
 
 {% block content %}
+{{ room_name|json_script:"room-name" }}
 <div class="main-chat-container bg-light border">
     <div class="users-list-container">
         <div class="self-user-header">

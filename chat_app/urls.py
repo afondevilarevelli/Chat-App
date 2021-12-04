@@ -18,12 +18,9 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-import src.views as views
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.UserFormView.as_view(), name='home'),
-    path('chat', views.chat, name='chat')
+    path('', include('src.urls'))
 ]
 
 urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

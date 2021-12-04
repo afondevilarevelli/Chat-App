@@ -1,4 +1,4 @@
 from django import forms
 
-class UserForm(forms.Form):
+class ChatForm(forms.Form):
     name = forms.CharField(max_length=50, required=True)
