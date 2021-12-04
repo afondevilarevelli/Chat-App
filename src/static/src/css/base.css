@@ -1,0 +1,13 @@
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.header-container {
+    margin-bottom: 12px;
+}
+
+.main-container {
+    margin: auto;
+    width: 100vw;
+}

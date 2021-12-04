@@ -1,0 +1,45 @@
+{% extends "src/base.html" %}
+{% load static %}
+
+{% block title %}Chat{% endblock %}
+
+{% block content %}
+<div class="main-chat-container bg-light border">
+    <div class="users-list-container">
+        <div class="self-user-header">
+            <img src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" class="rounded-circle"
+                alt="Profile pic">
+            <h4 style="margin: auto 0 auto 0">Username</h4>
+        </div>
+
+        <div class="user-list">
+            <h1>Ah</h1>
+        </div>
+    </div>
+
+    <div class="chat-container border-start">
+        <div class="chat-user-header">
+            <img src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" class="rounded-circle"
+                alt="Profile pic">
+            <h4 style="margin: auto 0 auto 0">Username</h4>
+        </div>
+
+        <div class="chat-itself">
+            <textarea disabled id="chat-log" style="width: 100%; height: 100%;"></textarea><br>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="chat-input-text" class="form-control" placeholder="Type here...">
+            <input type="submit" value="Send" id="chat-input-btn"></input>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'src/css/chat.css' %}">
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'src/js/chat.js' %}"></script>
+{% endblock %}

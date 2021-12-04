@@ -1,0 +1,36 @@
+{% extends "src/base.html" %}
+{% load static %}
+
+{% block title %}Chat{% endblock %}
+
+{% block content %}
+<form method="post" class="row g-3 w-50 m-auto" novalidate>
+    {% csrf_token %}
+    <div>
+        <label for="id_name" class="form-label">Name</label>
+        <input type="text" name="name" required class="form-control {% if form.name.errors %}is-invalid{% endif %}"
+            id="id_name">
+        {% if form.name.errors %}
+        <div class="invalid-feedback">
+            {{form.name.errors}}
+        </div>
+        {% endif %}
+    </div>
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary" id="enter-chat-btn">Enter chat room!</button>
+    </div>
+</form>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'src/css/index.css' %}">
+{% endblock %}
+
+{% block javascript %}
+<script>
+    document.querySelector('#id_name').onkeyup = function (e) {
+        if (e.keyCode === 13) // enter, return
+            document.querySelector('#enter-chat-btn').click();
+    }
+</script>
+{% endblock %}
