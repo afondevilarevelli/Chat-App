@@ -1,0 +1,44 @@
+{% extends "src/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign Up" %}{% endblock %}
+
+{% block content %}
+<form method="post" class="row g-3 w-50 m-auto" novalidate>
+    {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            {% for field in form %}
+            <div class="col-6">
+                {{ field.label_tag }}
+                <input type="text" name="{{ field.name }}" required class="form-control {% if field.errors %}is-invalid{% endif %}"
+                    id="{{ field.auto_id  }}">
+                {% if field.errors %}
+                <div class="invalid-feedback">
+                    {{ field.errors.0 }}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <input type="submit" class="btn btn-primary" id="enter-chat-btn" value="{%trans 'Enter chat room!' %}">
+        {% comment %} <button type="submit" class="btn btn-primary" id="enter-chat-btn">{%trans "Enter chat room!" %}</button> {% endcomment %}
+    </div>
+</form>
+{% endblock %}
+
+{% block css %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block javascript %}
+<script>
+
+</script>
+{% endblock %}
